@@ -18,7 +18,7 @@ const TaskList = (schedulerData:any, newEvent:any, taskDndSource:any ) => {
   const tasks = schedulerData.schedulerData.eventGroups;
   const DnDTaskItem = schedulerData.taskDndSource.getDragSource();
       return (
-      <ul>
+      <ul className='list-decimal list-inside space-y-2'>
         {tasks?.map((task:any) => (
           <DnDTaskItem key={task.id} task={task} newEvent={schedulerData.newEvent} schedulerData={schedulerData.schedulerData} />
         ))}

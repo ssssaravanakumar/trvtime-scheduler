@@ -1,0 +1,11 @@
+# Personal GitHub account
+Host github-personal
+  HostName github.com
+  User git
+  IdentityFile id_ed25519_personal
+
+# Work GitHub account (for organization)
+Host github-work
+  HostName github.com
+  User git
+  IdentityFile id_ed25519_work
