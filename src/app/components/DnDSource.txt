@@ -1,0 +1,31 @@
+import React from "react";
+import { DragSource } from "react-dnd";
+
+// Create the DnDSource function
+const DnDSource = (itemExtractor, Component, canDrag = true, type) => {
+  // Define the drag source spec
+  const spec = {
+    beginDrag(props) {
+      return itemExtractor(props); // Extract the item to drag
+    },
+    canDrag(props) {
+      return canDrag; // Determine if the item can be dragged
+    },
+  };
+
+  // Define the collect function to inject props
+  const collect = (connect, monitor) => ({
+    connectDragSource: connect.dragSource(), // Connect the drag source
+    isDragging: monitor.isDragging(), // Check if the item is currently being dragged
+  });
+
+  // Create the enhanced component using DragSource
+  const DraggedComponent = DragSource(type, spec, collect)(Component);
+
+  return (props) => {
+    // Return the enhanced component with props passed to it
+    return <DraggedComponent {...props} />;
+  };
+};
+
+export default DnDSource;

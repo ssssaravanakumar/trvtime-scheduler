@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import 'react-big-scheduler/lib/css/style.css';
+import DndWrapper from './components/DndWrapper';
+import 'react-big-scheduler/lib/css/style.css';
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -26,9 +29,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={` antialiased`}
       >
-        {children}
+        <DndWrapper>{children}</DndWrapper>
       </body>
     </html>
   );
